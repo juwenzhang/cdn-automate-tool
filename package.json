@@ -1,0 +1,56 @@
+{
+  "name": "cdn-automate-tool",
+  "version": "1.0.4",
+  "description": "",
+  "type": "module",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "types",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "log:github": "biome check --reporter=github",
+    "log:rdjson": "biome check --reporter=rdjson",
+    "build": "rollup -c rollup.config.ts",
+    "dev": "rollup -c rollup.config.ts --watch",
+    "prepublishOnly": "pnpm run build",
+    "type-check": "tsc --noEmit --check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.25.0",
+  "devDependencies": {
+    "@biomejs/biome": "2.3.14",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^25.2.1",
+    "rollup": "^4.57.1",
+    "rollup-plugin-dts": "^6.3.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "lodash-es": "^4.17.23"
+  },
+  "peerDependencies": {
+    "vite": "^7.0.0",
+    "webpack": "^5.0.0"
+  }
+}

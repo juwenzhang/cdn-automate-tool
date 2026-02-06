@@ -1,0 +1,29 @@
+name check code style, format, quality
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  check_style_format_quality:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      - name: Run Biome
+        run: biome ci .
