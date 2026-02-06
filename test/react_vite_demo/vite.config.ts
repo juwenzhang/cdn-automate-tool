@@ -29,7 +29,8 @@ export default defineConfig({
           type: "script",
           defer: true
         }
-      ]
+      ],
+      isProd: true
     }),
   ],
 })
